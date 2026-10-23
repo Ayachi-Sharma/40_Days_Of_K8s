@@ -33,7 +33,7 @@ In simple terms, an image is the template, and a container is the running instan
 
 # Docker Workflow
 
-![Docker Workflow](Docker-Workflow.png)
+![Docker Workflow](Docker_Workflow.png)
 
 Dockerfile: Develop your application and create a Dockerfile describing how to package it.
 Docker Image: Use docker build to create an image from the Dockerfile.
