@@ -1,0 +1,45 @@
+# Why Containers?
+Imagine you developed a java application and thought to share the file to one of your friend/colleagues. But as soon as they try to start it in their PC, there are tons of error even though it is working perfectly fine in your PC. 
+The reason for this can be mismatch in versions, dependencies , enviornment. Hence a concept of Containers was introduced.
+Containerization means packaging your application along with the dependencies,& versions so that it runs consistently across all machines even with the differnce in enviornment.
+
+# Containers vs Virtual machine
+If we look both of them are used to run an application in isolated enviorment.
+Difference is Virtual machine has a hypervisor layer which helps to have a contact with VM. It has its own operating sysytem and storage where application will have isolated enviornment. Application's startup time is slower and configuration is also heavy.
+In Containers it used host's kernel. But the startup time is fast and configuration is also lightweight.
+
+# Docker Architecture
+
+![Docker Architecture](Docker_Architecture.png)
+
+Docker Client: The terminal interface through which we send Docker commands like: Docker Command line Interfact(CLI).
+Docker Daemon: The background service that manages images, containers, networks, and volumes.
+Docker Images: Read-only templates which is used to create and run containers.
+Docker Containers: Running instances of images. It has a writable layer on docker image whch helps it to get manipulated
+Docker Registry: A place to store and distribute Docker images.example: Docker Hub.
+
+Flow: 
+Docker client sends a command , it goes to deamon and it decides whether the image is in local storage or need to pull from registry. Then the image runs an instance which results in a container.
+
+Suppose I run this command:
+docker pull nginx
+The Docker client sends the request to the Docker daemon, which downloads the Nginx image from a registry such as Docker Hub.
+
+Next, I run:
+docker run -d -p 8080:80 nginx
+Docker creates and starts a container using the Nginx image. I can then open http://localhost:8080 in my browser to access the web server.
+
+In simple terms, an image is the template, and a container is the running instance created from that template.
+
+# Docker Workflow
+
+![Docker Workflow](Docker-Workflow.png)
+
+Dockerfile: Develop your application and create a Dockerfile describing how to package it.
+Docker Image: Use docker build to create an image from the Dockerfile.
+Registry : Push it to a registry such as Docker Hub if you need to share it.
+Container: Use docker run to create and start a container from the image.
+
+Flow: You created a Dockerfile which pulls a nginx image and runs the container, in the current directory. Now when we build the Dockerfile, it pulls the image and runs the container
+
+* We can check running container with the command: docker ps *
