@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-demo
+spec:
+  capacity:
+    storage: 512Mi
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
+  hostPath:
+    path: /data/config
+    type: DirectoryOrCreate
